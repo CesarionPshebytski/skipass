@@ -8,13 +8,13 @@ public class CountByRides implements CountStrategy {
 
     private TimeStrategy timeStrategy;
 
-    public TimeStrategy getTimeStrategy() {
-        return timeStrategy;
-    }
-
     public CountByRides(RidesCountEnum ridesCount, TimeStrategy strategy) {
         availableRides = ridesCount.value;
         timeStrategy = strategy;
+    }
+
+    public TimeStrategy getTimeStrategy() {
+        return timeStrategy;
     }
 
     public boolean count() {

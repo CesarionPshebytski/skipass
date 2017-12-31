@@ -2,12 +2,12 @@ package Entities;
 
 import java.util.ArrayList;
 
-public class SkiPassSystem{
+public class SkiPassSystem {
     public ArrayList<SkiPass> skiPasses = new ArrayList<SkiPass>();
 
     public void add(SkiPass skiPass) {
         if (!skiPasses.contains(skiPass)) skiPasses.add(skiPass);
-        System.out.println(skiPasses.size());
+        unblockSkiPass(skiPass);
     }
 
     public void blockSkiPass(SkiPass skiPass) {
@@ -21,6 +21,13 @@ public class SkiPassSystem{
         for (SkiPass pass : skiPasses) {
             if (pass.getId() == id)
                 pass.block();
+        }
+    }
+
+    public void unblockSkiPass(SkiPass skiPass) {
+        for (SkiPass pass : skiPasses) {
+            if (pass.equals(skiPass))
+                pass.unblock();
         }
     }
 

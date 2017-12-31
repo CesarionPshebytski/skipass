@@ -8,8 +8,7 @@ public enum RidesCountEnum {
 
     public final int value;
 
-    RidesCountEnum(int value)
-    {
+    RidesCountEnum(int value) {
         this.value = value;
     }
 }

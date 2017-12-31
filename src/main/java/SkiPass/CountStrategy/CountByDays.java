@@ -11,13 +11,13 @@ public class CountByDays implements CountStrategy {
     private boolean wasUsed = false;
     private TimeStrategy timeStrategy;
 
-    public TimeStrategy getTimeStrategy() {
-        return timeStrategy;
-    }
-
     public CountByDays(DaysCountEnum daysCount, TimeStrategy strategy) {
         timeStrategy = strategy;
         availableDays = daysCount.value > 2 && timeStrategy.getClass().equals(WeekEndPass.class) ? 2 : daysCount.value;
+    }
+
+    public TimeStrategy getTimeStrategy() {
+        return timeStrategy;
     }
 
     public boolean count() {

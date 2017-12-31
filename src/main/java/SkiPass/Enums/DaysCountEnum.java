@@ -7,8 +7,7 @@ public enum DaysCountEnum {
 
     public final int value;
 
-    DaysCountEnum(int value)
-    {
+    DaysCountEnum(int value) {
         this.value = value;
     }
 }

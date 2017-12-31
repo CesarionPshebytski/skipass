@@ -2,10 +2,10 @@ package Entities;
 
 import SkiPass.CountStrategy.CountStrategy;
 
-public class SkiPass{
+public class SkiPass {
 
     private final int id;
-    private boolean isBlocked = false;
+    private boolean isBlocked = true;
     private int wasUsed = 0;
     private int wasBlocked = 0;
     private Customer customer;
@@ -16,7 +16,6 @@ public class SkiPass{
         this.countStrategy = countStrategy;
         id = hashCode();
         this.customer.addSkiPass(this);
-        System.out.println(id + "added");
     }
 
     public int getId() {
@@ -42,21 +41,18 @@ public class SkiPass{
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+        this.customer.addSkiPass(this);
     }
 
     public CountStrategy getCountStrategy() {
         return countStrategy;
     }
 
-    public void setCountStrategy(CountStrategy countStrategy) {
-        this.countStrategy = countStrategy;
-    }
-
     public int getUsageTimes() {
         return wasUsed;
     }
 
-    protected void wasUsed() {
+    void wasUsed() {
         this.wasUsed++;
     }
 

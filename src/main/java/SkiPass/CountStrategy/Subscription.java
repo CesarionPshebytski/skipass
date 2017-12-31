@@ -9,13 +9,13 @@ public class Subscription implements CountStrategy {
 
     private TimeStrategy timeStrategy;
 
-    public TimeStrategy getTimeStrategy() {
-        return timeStrategy;
-    }
-
     public Subscription(SubscriptionTimeEnum subscriptionTime, TimeStrategy strategy) {
         this.timeStrategy = strategy;
-        this.availableDays = timeStrategy.getClass().equals(WeekEndPass.class)?subscriptionTime.value:0;
+        this.availableDays = timeStrategy.getClass().equals(WeekEndPass.class) ? subscriptionTime.value : 0;
+    }
+
+    public TimeStrategy getTimeStrategy() {
+        return timeStrategy;
     }
 
     public boolean count() {
